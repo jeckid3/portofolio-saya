@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Kreatif | Bengkulu - Modern Dark Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0d1117; 
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #e6e6e6; 
+            --text-muted: #9aa5b1;
+            --accent: #FF5E00; 
+            --accent-glow: rgba(255, 94, 0, 0.4);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-blur: 15px;
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 94, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 77, 0.05) 0%, transparent 20%);
+            background-attachment: fixed; 
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(13, 17, 23, 0.8); 
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900; 
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ====================== HERO ====================== */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            text-align: center;
+            gap: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-wrapper {
+                flex-direction: row;
+                text-align: left;
+                justify-content: space-between;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        .hero-button {
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--bg-color); 
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .profile-card {
+            width: 300px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(var(--glass-blur));
+            border-radius: 15px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* ====================== ABOUT ====================== */
+        #about { padding: 100px 0; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-box {
+            background: var(--glass-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            backdrop-filter: blur(10px);
+        }
+
+        .hobby-tag {
+            background: var(--accent);
+            color: var(--bg-color);
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* ====================== PORTFOLIO ====================== */
+        #portfolio {
+            padding: 150px 0 100px;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            height: 350px; 
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            padding: 15px;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        /* ====================== FOOTER ====================== */
+        footer {
+            padding: 50px 0;
+            background: #050a10;
+            text-align: center;
+        }
+
+        /* === SOSIAL MEDIA ICONS === */
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body>
+    
+    <nav>
+        <div class="container">
+            <div class="logo">KRE<span class="highlight">A</span>TIF<span class="highlight">.</span></div>
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#portfolio">Karya</a>
+                <a href="#contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container hero-wrapper">
+            
+            <div class="hero-text reveal">
+                <h4>VISUAL ARTIST DARI BENGKULU</h4>
+                <h1>Menciptakan Estetika Digital <span class="highlight">yang Berdampak</span></h1>
+                <p>Menggabungkan budidaya perikanan dengan seni visual modern.</p>
+                <a href="#portfolio" class="hero-button">Lihat Karya Saya</a>
+            </div>
+
+            <div class="profile-card reveal">
+                <img src="Gemini_Generated_Image_2dnqi82dnqi82dnq.jpg" class="profile-img">
+                <h3>Zakhariya</h3>
+                <p style="color: var(--accent)">Visual Artist & Aquaculturist</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title reveal">Tentang Saya</h2>
+
+            <div class="about-grid">
+
+                <div class="info-box reveal">
+                    <h3>Data Pribadi</h3>
+                    <p><strong>Kelahiran:</strong> 01 Juni 1999</p>
+                    <p><strong>Asal:</strong> Bengkulu Tengah</p>
+                </div>
+
+                <div class="info-box reveal">
+                    <h3>Keahlian</h3>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <div class="hobby-tag">Desain Grafis</div>
+                        <div class="hobby-tag">Fotografi</div>
+                        <div class="hobby-tag">Video Editing</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title reveal">Karya Pilihan</h2>
+
+            <div class="gallery-grid reveal">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/400/300?random=1">
+                    <div class="overlay">
+                        <p>Branding | Desain Grafis</p>
+                        <h4>Revitalisasi Citra UMKM Kopi</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/400/300?random=2">
+                    <div class="overlay">
+                        <p>Fotografi</p>
+                        <h4>Benteng Marlborough</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2 class="reveal">Mari Terhubung</h2>
+            <p class="reveal">Saya terbuka untuk kolaborasi dalam desain, fotografi, videografi, atau proyek visual lainnya.</p>
+
+            <!-- === MEDIA SOSIAL === -->
+            <div class="social-icons reveal">
+                <a href="https://wa.me/6285173410811" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/zkr.id_01/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@noname______00001" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="text-muted reveal" style="margin-top: 30px; font-size: 0.8rem;">
+                Didesain & Dibuat di Bengkulu | © 2025 Portofolio Kreatif.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", () => {
+            document.querySelectorAll(".reveal").forEach((el) => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
